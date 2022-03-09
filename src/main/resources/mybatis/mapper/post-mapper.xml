@@ -15,6 +15,17 @@
         ORDER BY id DESC
         LIMIT #{limit} OFFSET #{offset} <!-- offset : 어디서부터 조회, limt : 최대 몇개 조회할지 -->
     </select>
+    <!-- 게시글 상세보기를 위한 쿼리문 추가하기 -->
+    <select id="findOne" resultType="com.codepresso.codepressoblog.vo.Post">
+        SELECT *
+        FROM post
+        WHERE id=#{id}; <!-- id가 url 파라미터로 들어온 id값과 같다면 조회-->
+    </select>
+    <!-- 게시글 저장을 위한 insert문 추가 -->
+    <insert id="save">
+        INSERT INTO post(title, content, username) <!-- 3개의 데이터를 저장함 (id와 creatAt은 자동 생성됨)  -->
+        VALUES (#{post.title}, #{post.content}, #{post.username});
+    </insert>
 
 
 </mapper>

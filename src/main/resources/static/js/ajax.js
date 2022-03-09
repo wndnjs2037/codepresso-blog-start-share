@@ -13,7 +13,7 @@ $(function(){
         .done(function(response) { //ajax 호출이 완료되면 실행될 구문
             for(var post of response) { //json 어레이에서 객체를 하나씩 꺼내와서 view에 표시
                 $('#more-posts').append("<div class=\"post-preview\">" + //id가 morepost인 영역에 append 해줌
-                    "<a href=\"#\">" +
+                    "<a href=\""/post/" + post.id +\">" + // post와 id를 연결해서 url로 만들어서 링크 연결하기
                     "<h2 class=\"post-title\">" +
                     post.title +
                     "</h2>\n" +

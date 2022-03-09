@@ -17,7 +17,7 @@
         <div class="col-md-10 col-lg-8 col-xl-7">
             {{#posts}} <!-- post의 개수만큼 반복해주기 위해 post로 리스트데이터를 받아준다-->
             <div class="post-preview"> <!-- 이 부분이 반복된다 -->
-                <a href="#">
+                <a href="/post/{{id}}"> <!-- 게시글 클릭시 post 객체의 id를 가져와서 url에 넣어줌 -->
                     <h2 class="post-title">{{title}}</h2>
                     <h3 class="post-subtitle">{{content}}</h3> <!-- 데이터베이스의 글 제목과 내용을 가져오기 위해 변수로 너허줌-->
                 </a>

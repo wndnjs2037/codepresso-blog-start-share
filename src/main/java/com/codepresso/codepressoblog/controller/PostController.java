@@ -1,11 +1,10 @@
 package com.codepresso.codepressoblog.controller;
 
+import com.codepresso.codepressoblog.controller.dto.PostRequestDto;
 import com.codepresso.codepressoblog.controller.dto.PostResponseDto;
 import com.codepresso.codepressoblog.service.PostService;
 import com.codepresso.codepressoblog.vo.Post;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +29,14 @@ public class PostController {
         }
 
         return postResponseDtoList; //최종적으로는 add가 완료된 Dto 객체를 반환한다.
+    }
+
+    @PostMapping("/post")
+    public String createPost(@RequestBody PostRequestDto postDto) { //이전에 만들어놓은 Dto로 데이터를 받는다.
+        Post post = postDto.getPost(); //PostRequestDto에 저장되어있는 getPost 메소드를 통해 Post 객체를 생성
+        postService.savePost(post); //위에서 만든 Post객체를 인자로 넣어서 savePost 메소드 실행
+
+        return "success"; //성공한다면 성공했다는 텍스트 리턴
     }
 
 }

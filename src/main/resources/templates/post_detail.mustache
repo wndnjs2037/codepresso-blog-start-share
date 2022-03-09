@@ -5,8 +5,8 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading">
-                    <h1>this is title</h1>
-                    <span class="meta"> Posted by codepresso </span>
+                    <h1>{{post.title}}</h1> <!-- post 객체로 받은 title 값 표시 -->
+                    <span class="meta"> Posted by {{post.username}} </span> <!-- 객체로 받은 username 값이 표시되도록 설정 -->
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center border-bottom pb-5">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <p>this is content</p>
+                <p>{{post.content}}</p> <!-- 본문에는 content의 내용 띄우기 -->
                 <div class="edit_btns">
                     <button><a href="#">수정</a></button>
                     <button>삭제</button>
