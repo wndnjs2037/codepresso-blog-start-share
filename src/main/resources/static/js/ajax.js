@@ -25,7 +25,28 @@ $(function(){
                 }
             });
             $(this).attr("current-page", next_page);
+        });
 
+    $("#create_button").click(function () { //버튼을 누르면 이벤트가 발생하도록 지정
+        var title = $("#post-title").val(); //세개의 변수가 각각의 데이터를 저장하도록 함
+        var username = $("#post-username").val();
+        var content = $("#post-content").val();
+
+        //위에서 가져온 데이터로 ajax 호출
+        $.ajax({
+            method : "POST",
+            url : "/post",
+            data : JSON.stringify({ //위에서 가져온 title, username , content를 json 형태로 만들어서
+                "title": title,
+                "username": username,
+                "content": content
+            }),
+            contentType : "application/json" //서버에서 json 형태로 데이터를 보내겠다고 알려주는 구문
+        })
+        .done(function(response) { //정상적으로 ajax 호출 완료시 실행되는 부분
+            console.log("Post creation success~!");
+            window.location.href = "/";
+        });
     });
 
     $(".comment-edit").hide();

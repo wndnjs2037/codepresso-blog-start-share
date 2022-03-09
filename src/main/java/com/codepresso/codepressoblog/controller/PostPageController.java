@@ -23,4 +23,9 @@ public class PostPageController {
         return "post_detail"; //최종적으로 post Deatil 뷰를 서빙해주도록 리턴 설정
     }
 
+    @RequestMapping("/post/create") //해당 url로 진입시, 아래의 메소드 실행
+    public String getPostCreatePage() {
+        return "post_write"; //텍스트 문장 서빙
+    }
+
 }
